@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>hexo 基本用法</title>
+    <url>/2020/12/31/hexo%20%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</url>
+    <content><![CDATA[<h3 id="hexo的一些常用命令，包括创建文本，清除缓存，本地预览，打包处理，推送至服务器；"><a href="#hexo的一些常用命令，包括创建文本，清除缓存，本地预览，打包处理，推送至服务器；" class="headerlink" title="hexo的一些常用命令，包括创建文本，清除缓存，本地预览，打包处理，推送至服务器；"></a>hexo的一些常用命令，包括创建文本，清除缓存，本地预览，打包处理，推送至服务器；</h3><h3 id="创建一篇新文章"><a href="#创建一篇新文章" class="headerlink" title="创建一篇新文章"></a>创建一篇新文章</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new  XXX</span><br><span class="line">或</span><br><span class="line">hexo n XXX</span><br></pre></td></tr></table></figure>
+<h3 id="清除缓存"><a href="#清除缓存" class="headerlink" title="清除缓存"></a>清除缓存</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+
+<h3 id="本地预览"><a href="#本地预览" class="headerlink" title="本地预览"></a>本地预览</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo server</span><br><span class="line">或</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<h3 id="打包处理"><a href="#打包处理" class="headerlink" title="打包处理"></a>打包处理</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">或</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<h3 id="推送至服务器-git"><a href="#推送至服务器-git" class="headerlink" title="推送至服务器/git"></a>推送至服务器/git</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo deploy</span><br><span class="line">或</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>电脑常用操作命令符</title>
+    <url>/2020/12/30/%E7%94%B5%E8%84%91%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4%E7%AC%A6/</url>
+    <content><![CDATA[<h4 id="本文简单记录一些电脑常用的操作命令"><a href="#本文简单记录一些电脑常用的操作命令" class="headerlink" title="本文简单记录一些电脑常用的操作命令"></a>本文简单记录一些电脑常用的操作命令</h4><h5 id="该命令行都是基于windows-R-输入cmd-出现的命令框"><a href="#该命令行都是基于windows-R-输入cmd-出现的命令框" class="headerlink" title="该命令行都是基于windows+R 输入cmd 出现的命令框"></a>该命令行都是基于windows+R 输入cmd 出现的命令框</h5> <a id="more"></a>
+
+<h5 id="查询电脑本机IP地址"><a href="#查询电脑本机IP地址" class="headerlink" title="查询电脑本机IP地址"></a>查询电脑本机IP地址</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ipconfig/all</span><br></pre></td></tr></table></figure>
+<h5 id="查询所有端口号"><a href="#查询所有端口号" class="headerlink" title="查询所有端口号"></a>查询所有端口号</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">netstat -ano</span><br></pre></td></tr></table></figure>
+<h5 id="查询某个端口号"><a href="#查询某个端口号" class="headerlink" title="查询某个端口号"></a>查询某个端口号</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">netstat -ano | findstr 8080</span><br></pre></td></tr></table></figure>
+<h5 id="停止某个端口号"><a href="#停止某个端口号" class="headerlink" title="停止某个端口号"></a>停止某个端口号</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">taskkill/pid 9332</span><br></pre></td></tr></table></figure>
+<h5 id="强制停止端口号"><a href="#强制停止端口号" class="headerlink" title="强制停止端口号"></a>强制停止端口号</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">taskkill/pid 9332 /F</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>移动端自适应 px转rem 实现响应式屏幕</title>
+    <url>/2020/12/30/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%87%AA%E9%80%82%E5%BA%94%20px%E8%BD%ACrem%20%E5%AE%9E%E7%8E%B0%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B1%8F%E5%B9%95/</url>
+    <content><![CDATA[<h6 id="在做移动端开发，h5开发时，会需求屏幕的自适应；因此就需要用到rem、em、vw、或者-；"><a href="#在做移动端开发，h5开发时，会需求屏幕的自适应；因此就需要用到rem、em、vw、或者-；" class="headerlink" title="在做移动端开发，h5开发时，会需求屏幕的自适应；因此就需要用到rem、em、vw、或者%；"></a>在做移动端开发，h5开发时，会需求屏幕的自适应；因此就需要用到rem、em、vw、或者%；</h6><h6 id="本文简述一下html文本中rem的使用方法"><a href="#本文简述一下html文本中rem的使用方法" class="headerlink" title="本文简述一下html文本中rem的使用方法"></a>本文简述一下html文本中rem的使用方法</h6><h6 id=""><a href="#" class="headerlink" title=""></a></h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    !<span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">         var pageWid = 750; </span><br><span class="line">         <span class="keyword">function</span> <span class="function"><span class="title">a</span></span>() &#123; </span><br><span class="line">              document.documentElement.style.fontSize = document.documentElement.clientWidth / pageWid * 10 / 16 * 1000 + <span class="string">&quot;%&quot;</span></span><br><span class="line">             &#125;</span><br><span class="line">             var b = null; </span><br><span class="line">             window.addEventListener(<span class="string">&quot;resize&quot;</span>, <span class="function"><span class="title">function</span></span> () &#123; </span><br><span class="line">              clearTimeout(b);</span><br><span class="line">              b = setTimeout(a, 100) </span><br><span class="line">             &#125;, !1);</span><br><span class="line">         a() </span><br><span class="line">    &#125;(window);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+</search>
