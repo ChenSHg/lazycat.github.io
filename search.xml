@@ -8,7 +8,7 @@
 
 <h3 id="本地预览"><a href="#本地预览" class="headerlink" title="本地预览"></a>本地预览</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo server</span><br><span class="line">或</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 
-<h3 id="打包处理"><a href="#打包处理" class="headerlink" title="打包处理"></a>打包处理</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">或</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<h3 id="打包处理"><a href="#打包处理" class="headerlink" title="打包处理"></a>打包处理</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">或</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>
 
 <h3 id="推送至服务器-git"><a href="#推送至服务器-git" class="headerlink" title="推送至服务器/git"></a>推送至服务器/git</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo deploy</span><br><span class="line">或</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 ]]></content>
