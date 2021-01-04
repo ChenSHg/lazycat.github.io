@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-12-31T07:46:14.420Z</updated>
+  <updated>2021-01-04T09:09:50.050Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vue 前端项目上传文件到AWS Amazon S3 存储桶</title>
+    <link href="http://example.com/2021/01/04/test/"/>
+    <id>http://example.com/2021/01/04/test/</id>
+    <published>2021-01-04T08:41:13.000Z</published>
+    <updated>2021-01-04T09:09:50.050Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h5 id=&quot;最近公司有项目需要将原先服务器上的图片转移到AWS的S3-储存桶中-，前端的上传图片也需要重新编写，后台管理是用Vue-写的-；&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Vue" scheme="http://example.com/categories/Vue/"/>
+    
+    
+    <category term="前端" scheme="http://example.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>CSS 修改滚动条样式修改</title>
