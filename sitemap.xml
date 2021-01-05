@@ -95,7 +95,7 @@
 
   
   <url>
-    <loc>http://example.com/tags/CSS/</loc>
+    <loc>http://example.com/tags/JavaScript/</loc>
     <lastmod>2021-01-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -109,7 +109,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/JavaScript/</loc>
+    <loc>http://example.com/tags/CSS/</loc>
     <lastmod>2021-01-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

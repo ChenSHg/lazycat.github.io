@@ -1,19 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>CSS 修改滚动条样式修改</title>
-    <url>/2020/12/31/CSS%20%E4%BF%AE%E6%94%B9%E6%BB%9A%E5%8A%A8%E6%9D%A1%E6%A0%B7%E5%BC%8F%E4%BF%AE%E6%94%B9/</url>
-    <content><![CDATA[<p>####### 在项目中有时候会遇到 需要修改页面的滚动条样式 加入下边样式就可以了</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">div::-webkit-scrollbar &#123;</span><br><span class="line">  &#x2F;*滚动条整体样式*&#x2F;</span><br><span class="line">  width: 2px;</span><br><span class="line">  &#x2F;*高宽分别对应横竖滚动条的尺寸*&#x2F;</span><br><span class="line">  height: 1px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">div::-webkit-scrollbar-thumb &#123;</span><br><span class="line">  &#x2F;*滚动条里面小方块*&#x2F;</span><br><span class="line">  border-radius: 2px;</span><br><span class="line">  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);</span><br><span class="line">  background: #94ddd1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">div::-webkit-scrollbar-track &#123;</span><br><span class="line">  &#x2F;*滚动条里面轨道*&#x2F;</span><br><span class="line">  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.0);</span><br><span class="line">  border-radius: 10px;</span><br><span class="line">  background: transparent;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>CSS</tag>
-        <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JS JSON串转换</title>
     <url>/2020/12/31/JS%20JSON%E4%B8%B2%E8%BD%AC%E6%8D%A2/</url>
     <content><![CDATA[<h2 id="JS-对象转为json字符串"><a href="#JS-对象转为json字符串" class="headerlink" title="JS 对象转为json字符串"></a>JS 对象转为json字符串</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var obj&#x3D;&#123;name:&quot;小明&quot;,age:&quot;15&quot;&#125;</span><br><span class="line"></span><br><span class="line">JSON.srtingify(obj) </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;&quot;&#123;&quot;name&quot;:&quot;小明&quot;,&quot;age&quot;:&quot;15&quot;&#125;&quot; </span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -25,8 +12,21 @@
         <category>前端</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>JavaScript</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CSS 修改滚动条样式修改</title>
+    <url>/2020/12/31/CSS%20%E4%BF%AE%E6%94%B9%E6%BB%9A%E5%8A%A8%E6%9D%A1%E6%A0%B7%E5%BC%8F%E4%BF%AE%E6%94%B9/</url>
+    <content><![CDATA[<p>####### 在项目中有时候会遇到 需要修改页面的滚动条样式 加入下边样式就可以了</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">div::-webkit-scrollbar &#123;</span><br><span class="line">  &#x2F;*滚动条整体样式*&#x2F;</span><br><span class="line">  width: 2px;</span><br><span class="line">  &#x2F;*高宽分别对应横竖滚动条的尺寸*&#x2F;</span><br><span class="line">  height: 1px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">div::-webkit-scrollbar-thumb &#123;</span><br><span class="line">  &#x2F;*滚动条里面小方块*&#x2F;</span><br><span class="line">  border-radius: 2px;</span><br><span class="line">  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);</span><br><span class="line">  background: #94ddd1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">div::-webkit-scrollbar-track &#123;</span><br><span class="line">  &#x2F;*滚动条里面轨道*&#x2F;</span><br><span class="line">  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.0);</span><br><span class="line">  border-radius: 10px;</span><br><span class="line">  background: transparent;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>CSS</tag>
       </tags>
   </entry>
   <entry>
@@ -76,6 +76,18 @@
       </tags>
   </entry>
   <entry>
+    <title>微信小程序直播功能</title>
+    <url>/2021/01/05/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9B%B4%E6%92%AD%E5%8A%9F%E8%83%BD/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>微信小程序</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>电脑常用操作命令符</title>
     <url>/2020/12/30/%E7%94%B5%E8%84%91%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4%E7%AC%A6/</url>
     <content><![CDATA[<h4 id="本文简单记录一些电脑常用的操作命令"><a href="#本文简单记录一些电脑常用的操作命令" class="headerlink" title="本文简单记录一些电脑常用的操作命令"></a>本文简单记录一些电脑常用的操作命令</h4><h5 id="该命令行都是基于windows-R-输入cmd-出现的命令框"><a href="#该命令行都是基于windows-R-输入cmd-出现的命令框" class="headerlink" title="该命令行都是基于windows+R 输入cmd 出现的命令框"></a>该命令行都是基于windows+R 输入cmd 出现的命令框</h5> <a id="more"></a>
@@ -96,18 +108,6 @@
       </tags>
   </entry>
   <entry>
-    <title>微信小程序直播功能</title>
-    <url>/2021/01/05/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9B%B4%E6%92%AD%E5%8A%9F%E8%83%BD/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-        <tag>微信小程序</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>移动端自适应 px转rem 实现响应式屏幕</title>
     <url>/2020/12/30/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%87%AA%E9%80%82%E5%BA%94%20px%E8%BD%ACrem%20%E5%AE%9E%E7%8E%B0%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B1%8F%E5%B9%95/</url>
     <content><![CDATA[<h6 id="在做移动端开发，h5开发时，会需求屏幕的自适应；因此就需要用到rem、em、vw、或者-；"><a href="#在做移动端开发，h5开发时，会需求屏幕的自适应；因此就需要用到rem、em、vw、或者-；" class="headerlink" title="在做移动端开发，h5开发时，会需求屏幕的自适应；因此就需要用到rem、em、vw、或者%；"></a>在做移动端开发，h5开发时，会需求屏幕的自适应；因此就需要用到rem、em、vw、或者%；</h6><h6 id="本文简述一下html文本中rem的使用方法"><a href="#本文简述一下html文本中rem的使用方法" class="headerlink" title="本文简述一下html文本中rem的使用方法"></a>本文简述一下html文本中rem的使用方法</h6><h6 id=""><a href="#" class="headerlink" title=""></a></h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    !<span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">         var pageWid = 750; </span><br><span class="line">         <span class="keyword">function</span> <span class="function"><span class="title">a</span></span>() &#123; </span><br><span class="line">              document.documentElement.style.fontSize = document.documentElement.clientWidth / pageWid * 10 / 16 * 1000 + <span class="string">&quot;%&quot;</span></span><br><span class="line">             &#125;</span><br><span class="line">             var b = null; </span><br><span class="line">             window.addEventListener(<span class="string">&quot;resize&quot;</span>, <span class="function"><span class="title">function</span></span> () &#123; </span><br><span class="line">              clearTimeout(b);</span><br><span class="line">              b = setTimeout(a, 100) </span><br><span class="line">             &#125;, !1);</span><br><span class="line">         a() </span><br><span class="line">    &#125;(window);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -117,8 +117,8 @@
         <category>前端</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>JavaScript</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
 </search>
