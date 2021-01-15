@@ -2,14 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.chensihang.cn/about/index.html</loc>
+    <loc>https://blog.chensihang.cn/2021/01/15/wxtest/</loc>
     
-    <lastmod>2021-01-08</lastmod>
+    <lastmod>2021-01-15</lastmod>
     
   </url>
   
   <url>
     <loc>https://blog.chensihang.cn/2021/01/08/Vue%20%E5%95%86%E5%9F%8E%E5%90%8E%E5%8F%B0%E7%94%9F%E6%88%90%E5%95%86%E5%93%81SKU%E8%A7%84%E6%A0%BC%E5%88%97%E8%A1%A8/</loc>
+    
+    <lastmod>2021-01-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.chensihang.cn/2021/01/05/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9B%B4%E6%92%AD%E5%8A%9F%E8%83%BD/</loc>
+    
+    <lastmod>2021-01-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.chensihang.cn/about/index.html</loc>
     
     <lastmod>2021-01-08</lastmod>
     
@@ -38,13 +52,6 @@
   
   <url>
     <loc>https://blog.chensihang.cn/2020/12/30/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%87%AA%E9%80%82%E5%BA%94%20px%E8%BD%ACrem%20%E5%AE%9E%E7%8E%B0%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B1%8F%E5%B9%95/</loc>
-    
-    <lastmod>2021-01-05</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.chensihang.cn/2021/01/05/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9B%B4%E6%92%AD%E5%8A%9F%E8%83%BD/</loc>
     
     <lastmod>2021-01-05</lastmod>
     
@@ -95,57 +102,50 @@
 
   <url>
     <loc>https://blog.chensihang.cn/</loc>
-    <lastmod>2021-01-12</lastmod>
+    <lastmod>2021-01-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>https://blog.chensihang.cn/tags/Vue/</loc>
-    <lastmod>2021-01-12</lastmod>
+    <loc>https://blog.chensihang.cn/tags/CSS/</loc>
+    <lastmod>2021-01-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blog.chensihang.cn/tags/%E5%89%8D%E7%AB%AF/</loc>
-    <lastmod>2021-01-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.chensihang.cn/tags/CSS/</loc>
-    <lastmod>2021-01-12</lastmod>
+    <lastmod>2021-01-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blog.chensihang.cn/tags/JavaScript/</loc>
-    <lastmod>2021-01-12</lastmod>
+    <lastmod>2021-01-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://blog.chensihang.cn/tags/JavasScript/</loc>
-    <lastmod>2021-01-12</lastmod>
+    <loc>https://blog.chensihang.cn/tags/Vue/</loc>
+    <lastmod>2021-01-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blog.chensihang.cn/tags/%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2021-01-12</lastmod>
+    <lastmod>2021-01-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blog.chensihang.cn/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/</loc>
-    <lastmod>2021-01-12</lastmod>
+    <lastmod>2021-01-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -154,21 +154,21 @@
   
   <url>
     <loc>https://blog.chensihang.cn/categories/%E5%89%8D%E7%AB%AF/</loc>
-    <lastmod>2021-01-12</lastmod>
+    <lastmod>2021-01-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blog.chensihang.cn/categories/%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2021-01-12</lastmod>
+    <lastmod>2021-01-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blog.chensihang.cn/categories/Linux/</loc>
-    <lastmod>2021-01-12</lastmod>
+    <lastmod>2021-01-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>

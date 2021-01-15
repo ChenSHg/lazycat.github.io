@@ -6,7 +6,7 @@
   <link href="https://blog.chensihang.cn/atom.xml" rel="self"/>
   
   <link href="https://blog.chensihang.cn/"/>
-  <updated>2021-01-08T03:38:01.592Z</updated>
+  <updated>2021-01-15T07:24:59.428Z</updated>
   <id>https://blog.chensihang.cn/</id>
   
   <author>
@@ -17,11 +17,42 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>微信小程序实现下拉刷新</title>
+    <link href="https://blog.chensihang.cn/2021/01/15/wxtest/"/>
+    <id>https://blog.chensihang.cn/2021/01/15/wxtest/</id>
+    <published>2021-01-15T07:06:26.000Z</published>
+    <updated>2021-01-15T07:24:59.428Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在写列表页面的时候，会有下拉刷新页面的需求，微信小程序本身也提供了这类的API供前端开发者们使用；本文做一个简单的下来刷新处理；&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在本文中 将要使用的微信API &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure</summary>
+        
+      
+    
+    
+    
+    <category term="前端" scheme="https://blog.chensihang.cn/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="前端" scheme="https://blog.chensihang.cn/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="微信小程序" scheme="https://blog.chensihang.cn/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Vue 商城后台生成商品SKU规格列表</title>
     <link href="https://blog.chensihang.cn/2021/01/08/Vue%20%E5%95%86%E5%9F%8E%E5%90%8E%E5%8F%B0%E7%94%9F%E6%88%90%E5%95%86%E5%93%81SKU%E8%A7%84%E6%A0%BC%E5%88%97%E8%A1%A8/"/>
     <id>https://blog.chensihang.cn/2021/01/08/Vue%20%E5%95%86%E5%9F%8E%E5%90%8E%E5%8F%B0%E7%94%9F%E6%88%90%E5%95%86%E5%93%81SKU%E8%A7%84%E6%A0%BC%E5%88%97%E8%A1%A8/</id>
     <published>2021-01-08T02:19:13.000Z</published>
-    <updated>2021-01-08T03:38:01.592Z</updated>
+    <updated>2021-01-15T07:07:28.408Z</updated>
     
     
       
@@ -37,11 +68,11 @@
     <category term="前端" scheme="https://blog.chensihang.cn/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-    <category term="Vue" scheme="https://blog.chensihang.cn/tags/Vue/"/>
-    
     <category term="前端" scheme="https://blog.chensihang.cn/tags/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="JavasScript" scheme="https://blog.chensihang.cn/tags/JavasScript/"/>
+    <category term="JavaScript" scheme="https://blog.chensihang.cn/tags/JavaScript/"/>
+    
+    <category term="Vue" scheme="https://blog.chensihang.cn/tags/Vue/"/>
     
   </entry>
   
@@ -50,8 +81,19 @@
     <link href="https://blog.chensihang.cn/2021/01/05/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9B%B4%E6%92%AD%E5%8A%9F%E8%83%BD/"/>
     <id>https://blog.chensihang.cn/2021/01/05/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9B%B4%E6%92%AD%E5%8A%9F%E8%83%BD/</id>
     <published>2021-01-05T08:48:42.000Z</published>
-    <updated>2021-01-05T08:58:16.490Z</updated>
+    <updated>2021-01-15T07:03:53.742Z</updated>
     
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;近期公司要在微信小程序中增加直播功能,由于工期比较紧张，所以使用微信小程序自带的直播功能；&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  &lt;img</summary>
+        
+      
     
     
     
@@ -85,9 +127,9 @@
     <category term="前端" scheme="https://blog.chensihang.cn/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-    <category term="Vue" scheme="https://blog.chensihang.cn/tags/Vue/"/>
-    
     <category term="前端" scheme="https://blog.chensihang.cn/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="Vue" scheme="https://blog.chensihang.cn/tags/Vue/"/>
     
   </entry>
   
@@ -112,9 +154,9 @@
     <category term="前端" scheme="https://blog.chensihang.cn/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-    <category term="前端" scheme="https://blog.chensihang.cn/tags/%E5%89%8D%E7%AB%AF/"/>
-    
     <category term="CSS" scheme="https://blog.chensihang.cn/tags/CSS/"/>
+    
+    <category term="前端" scheme="https://blog.chensihang.cn/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
