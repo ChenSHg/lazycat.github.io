@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Allow: /home/
+Allow: /about/
+Disallow: /vendors/
+Allow: /js/
+Allow: /css/
+Disallow: /fonts/
+Disallow: /vendors/
+Disallow: /fancybox/
+
+Sitemap: https://blog.chensihang.cn/sitemap.xml
+Sitemap: https://blog.chensihang.cn/baidusitemap.xml

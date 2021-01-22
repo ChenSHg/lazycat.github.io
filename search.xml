@@ -82,25 +82,6 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo 常用命令</title>
-    <url>/2021/01/17/hexo%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h3 id="hexo的一些常用命令，包括创建文本，清除缓存，本地预览，打包处理，推送至服务器；"><a href="#hexo的一些常用命令，包括创建文本，清除缓存，本地预览，打包处理，推送至服务器；" class="headerlink" title="hexo的一些常用命令，包括创建文本，清除缓存，本地预览，打包处理，推送至服务器；"></a>hexo的一些常用命令，包括创建文本，清除缓存，本地预览，打包处理，推送至服务器；</h3><h3 id="创建一篇新文章"><a href="#创建一篇新文章" class="headerlink" title="创建一篇新文章"></a>创建一篇新文章</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new  XXX</span><br><span class="line">或</span><br><span class="line">hexo n XXX</span><br></pre></td></tr></table></figure>
-<h3 id="清除缓存"><a href="#清除缓存" class="headerlink" title="清除缓存"></a>清除缓存</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
-
-<h3 id="本地预览"><a href="#本地预览" class="headerlink" title="本地预览"></a>本地预览</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo server</span><br><span class="line">或</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
-<h3 id="打包处理"><a href="#打包处理" class="headerlink" title="打包处理"></a>打包处理</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">或</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-
-<h3 id="推送至服务器-git"><a href="#推送至服务器-git" class="headerlink" title="推送至服务器/git"></a>推送至服务器/git</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo deploy</span><br><span class="line">或</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>工具</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>微信小程序实现下拉刷新</title>
     <url>/2021/01/15/wxtest/</url>
     <content><![CDATA[<p>在写列表页面的时候，会有下拉刷新页面的需求，微信小程序本身也提供了这类的API供前端开发者们使用；本文做一个简单的下来刷新处理；</p>
@@ -123,6 +104,25 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo 常用命令</title>
+    <url>/2021/01/17/hexo%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h3 id="hexo的一些常用命令，包括创建文本，清除缓存，本地预览，打包处理，推送至服务器；"><a href="#hexo的一些常用命令，包括创建文本，清除缓存，本地预览，打包处理，推送至服务器；" class="headerlink" title="hexo的一些常用命令，包括创建文本，清除缓存，本地预览，打包处理，推送至服务器；"></a>hexo的一些常用命令，包括创建文本，清除缓存，本地预览，打包处理，推送至服务器；</h3><h3 id="创建一篇新文章"><a href="#创建一篇新文章" class="headerlink" title="创建一篇新文章"></a>创建一篇新文章</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new  XXX</span><br><span class="line">或</span><br><span class="line">hexo n XXX</span><br></pre></td></tr></table></figure>
+<h3 id="清除缓存"><a href="#清除缓存" class="headerlink" title="清除缓存"></a>清除缓存</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+
+<h3 id="本地预览"><a href="#本地预览" class="headerlink" title="本地预览"></a>本地预览</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo server</span><br><span class="line">或</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<h3 id="打包处理"><a href="#打包处理" class="headerlink" title="打包处理"></a>打包处理</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">或</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+
+<h3 id="推送至服务器-git"><a href="#推送至服务器-git" class="headerlink" title="推送至服务器/git"></a>推送至服务器/git</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo deploy</span><br><span class="line">或</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>微信小程序直播功能</title>
     <url>/2021/01/05/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9B%B4%E6%92%AD%E5%8A%9F%E8%83%BD/</url>
     <content><![CDATA[<blockquote>
@@ -136,6 +136,20 @@
       <tags>
         <tag>前端</tag>
         <tag>微信小程序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>移动端自适应 px转rem 实现响应式屏幕</title>
+    <url>/2020/12/30/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%87%AA%E9%80%82%E5%BA%94%20px%E8%BD%ACrem%20%E5%AE%9E%E7%8E%B0%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B1%8F%E5%B9%95/</url>
+    <content><![CDATA[<h6 id="在做移动端开发，h5开发时，会需求屏幕的自适应；因此就需要用到rem、em、vw、或者-；"><a href="#在做移动端开发，h5开发时，会需求屏幕的自适应；因此就需要用到rem、em、vw、或者-；" class="headerlink" title="在做移动端开发，h5开发时，会需求屏幕的自适应；因此就需要用到rem、em、vw、或者%；"></a>在做移动端开发，h5开发时，会需求屏幕的自适应；因此就需要用到rem、em、vw、或者%；</h6><h6 id="本文简述一下html文本中rem的使用方法"><a href="#本文简述一下html文本中rem的使用方法" class="headerlink" title="本文简述一下html文本中rem的使用方法"></a>本文简述一下html文本中rem的使用方法</h6><h6 id=""><a href="#" class="headerlink" title=""></a></h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    !<span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">         var pageWid = 750; </span><br><span class="line">         <span class="keyword">function</span> <span class="function"><span class="title">a</span></span>() &#123; </span><br><span class="line">              document.documentElement.style.fontSize = document.documentElement.clientWidth / pageWid * 10 / 16 * 1000 + <span class="string">&quot;%&quot;</span></span><br><span class="line">             &#125;</span><br><span class="line">             var b = null; </span><br><span class="line">             window.addEventListener(<span class="string">&quot;resize&quot;</span>, <span class="function"><span class="title">function</span></span> () &#123; </span><br><span class="line">              clearTimeout(b);</span><br><span class="line">              b = setTimeout(a, 100) </span><br><span class="line">             &#125;, !1);</span><br><span class="line">         a() </span><br><span class="line">    &#125;(window);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -156,20 +170,6 @@
       </categories>
       <tags>
         <tag>工具</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>移动端自适应 px转rem 实现响应式屏幕</title>
-    <url>/2020/12/30/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%87%AA%E9%80%82%E5%BA%94%20px%E8%BD%ACrem%20%E5%AE%9E%E7%8E%B0%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B1%8F%E5%B9%95/</url>
-    <content><![CDATA[<h6 id="在做移动端开发，h5开发时，会需求屏幕的自适应；因此就需要用到rem、em、vw、或者-；"><a href="#在做移动端开发，h5开发时，会需求屏幕的自适应；因此就需要用到rem、em、vw、或者-；" class="headerlink" title="在做移动端开发，h5开发时，会需求屏幕的自适应；因此就需要用到rem、em、vw、或者%；"></a>在做移动端开发，h5开发时，会需求屏幕的自适应；因此就需要用到rem、em、vw、或者%；</h6><h6 id="本文简述一下html文本中rem的使用方法"><a href="#本文简述一下html文本中rem的使用方法" class="headerlink" title="本文简述一下html文本中rem的使用方法"></a>本文简述一下html文本中rem的使用方法</h6><h6 id=""><a href="#" class="headerlink" title=""></a></h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    !<span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">         var pageWid = 750; </span><br><span class="line">         <span class="keyword">function</span> <span class="function"><span class="title">a</span></span>() &#123; </span><br><span class="line">              document.documentElement.style.fontSize = document.documentElement.clientWidth / pageWid * 10 / 16 * 1000 + <span class="string">&quot;%&quot;</span></span><br><span class="line">             &#125;</span><br><span class="line">             var b = null; </span><br><span class="line">             window.addEventListener(<span class="string">&quot;resize&quot;</span>, <span class="function"><span class="title">function</span></span> () &#123; </span><br><span class="line">              clearTimeout(b);</span><br><span class="line">              b = setTimeout(a, 100) </span><br><span class="line">             &#125;, !1);</span><br><span class="line">         a() </span><br><span class="line">    &#125;(window);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-        <tag>JavaScript</tag>
       </tags>
   </entry>
 </search>
