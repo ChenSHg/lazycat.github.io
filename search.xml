@@ -123,22 +123,6 @@
       </tags>
   </entry>
   <entry>
-    <title>微信小程序直播功能</title>
-    <url>/2021/01/05/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9B%B4%E6%92%AD%E5%8A%9F%E8%83%BD/</url>
-    <content><![CDATA[<blockquote>
-<p>近期公司要在微信小程序中增加直播功能,由于工期比较紧张，所以使用微信小程序自带的直播功能；</p>
-</blockquote>
-<p>  <img src="https://me--images.oss-cn-chengdu.aliyuncs.com/blog/zhibo.png" alt="小程序直播功能"></p>
-<h6 id="查看官方文档"><a href="#查看官方文档" class="headerlink" title="查看官方文档"></a><a href="https://developers.weixin.qq.com/miniprogram/dev/framework/liveplayer/live-player-plugin.html">查看官方文档</a></h6>]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-        <tag>微信小程序</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>电脑常用操作命令符</title>
     <url>/2020/12/30/%E7%94%B5%E8%84%91%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4%E7%AC%A6/</url>
     <content><![CDATA[<h4 id="本文简单记录一些电脑常用的操作命令"><a href="#本文简单记录一些电脑常用的操作命令" class="headerlink" title="本文简单记录一些电脑常用的操作命令"></a>本文简单记录一些电脑常用的操作命令</h4><h5 id="该命令行都是基于windows-R-输入cmd-出现的命令框"><a href="#该命令行都是基于windows-R-输入cmd-出现的命令框" class="headerlink" title="该命令行都是基于windows+R 输入cmd 出现的命令框"></a>该命令行都是基于windows+R 输入cmd 出现的命令框</h5> <a id="more"></a>
@@ -156,6 +140,22 @@
       </categories>
       <tags>
         <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>微信小程序直播功能</title>
+    <url>/2021/01/05/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9B%B4%E6%92%AD%E5%8A%9F%E8%83%BD/</url>
+    <content><![CDATA[<blockquote>
+<p>近期公司要在微信小程序中增加直播功能,由于工期比较紧张，所以使用微信小程序自带的直播功能；</p>
+</blockquote>
+<p>  <img src="https://me--images.oss-cn-chengdu.aliyuncs.com/blog/zhibo.png" alt="小程序直播功能"></p>
+<h6 id="查看官方文档"><a href="#查看官方文档" class="headerlink" title="查看官方文档"></a><a href="https://developers.weixin.qq.com/miniprogram/dev/framework/liveplayer/live-player-plugin.html">查看官方文档</a></h6>]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>微信小程序</tag>
       </tags>
   </entry>
   <entry>
