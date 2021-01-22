@@ -6,7 +6,7 @@
   <link href="https://blog.chensihang.cn/atom.xml" rel="self"/>
   
   <link href="https://blog.chensihang.cn/"/>
-  <updated>2020-12-31T07:37:35.294Z</updated>
+  <updated>2021-01-22T02:23:38.793Z</updated>
   <id>https://blog.chensihang.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>微信小程序设定富文本图片宽度</title>
+    <link href="https://blog.chensihang.cn/2021/01/22/wxtest1/"/>
+    <id>https://blog.chensihang.cn/2021/01/22/wxtest1/</id>
+    <published>2021-01-22T02:19:59.000Z</published>
+    <updated>2021-01-22T02:23:38.793Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在微信小程序中有时候需要用到微信自带的富文本组件 rich-text  如果富文本中有图片的存在，在小程序中展示图片会超出页面的宽度，这时候就需要在小程序中处理图片的宽度了&lt;/p&gt;
+&lt;h6 id=&quot;给富文本中的图片添加一个class样式&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="前端" scheme="https://blog.chensihang.cn/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="前端" scheme="https://blog.chensihang.cn/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="微信小程序" scheme="https://blog.chensihang.cn/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>hexo 常用命令</title>

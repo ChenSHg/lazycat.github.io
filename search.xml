@@ -172,4 +172,18 @@
         <tag>JavaScript</tag>
       </tags>
   </entry>
+  <entry>
+    <title>微信小程序设定富文本图片宽度</title>
+    <url>/2021/01/22/wxtest1/</url>
+    <content><![CDATA[<p>在微信小程序中有时候需要用到微信自带的富文本组件 rich-text  如果富文本中有图片的存在，在小程序中展示图片会超出页面的宽度，这时候就需要在小程序中处理图片的宽度了</p>
+<h6 id="给富文本中的图片添加一个class样式"><a href="#给富文本中的图片添加一个class样式" class="headerlink" title="给富文本中的图片添加一个class样式"></a>给富文本中的图片添加一个class样式</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">var _str = data.data.replace(/&lt;img /g, <span class="string">&#x27;&lt;img class=&quot;rich_img&quot; &#x27;</span>);</span><br><span class="line">     console.log(_str)</span><br><span class="line">   that.setData(&#123;</span><br><span class="line">       msg: _str</span><br><span class="line">     &#125;)</span><br></pre></td></tr></table></figure>
+<h6 id="设置class-样式详情"><a href="#设置class-样式详情" class="headerlink" title="设置class 样式详情"></a>设置class 样式详情</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">.rich_img&#123;</span><br><span class="line">  max-width:100% !important;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>微信小程序</tag>
+      </tags>
+  </entry>
 </search>
