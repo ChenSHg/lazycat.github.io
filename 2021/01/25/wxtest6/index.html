@@ -19,7 +19,7 @@
                                                 content="width=device-width, initial-scale=1, maximum-scale=1" />
                                             <title>
                                                 
-                                                    微信小程序实现下拉刷新 |
+                                                    微信小程序  商城商品倒计时 |
                                                         
                                                             前端老猫
                                             </title>
@@ -58,7 +58,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-wxtest"
+  id="post-wxtest6"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -69,15 +69,15 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  微信小程序实现下拉刷新
+  微信小程序  商城商品倒计时
 </h1>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/2021/01/15/wxtest/" class="article-date">
-  <time datetime="2021-01-15T07:06:26.000Z" itemprop="datePublished">2021-01-15</time>
+      <a href="/2021/01/25/wxtest6/" class="article-date">
+  <time datetime="2021-01-25T03:25:26.000Z" itemprop="datePublished">2021-01-25</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">376</span>
+            <span class="post-count">677</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">3 分钟</span>
         </span>
     </span>
 </div>
@@ -113,18 +113,16 @@
     <div class="article-entry" itemprop="articleBody">
        
   <blockquote>
-<p>在写列表页面的时候，会有下拉刷新页面的需求，微信小程序本身也提供了这类的API供前端开发者们使用；本文做一个简单的下来刷新处理；</p>
+<p>在微信小程序 商城项目中 商城计时折扣 是基本功能  如果是在一些团购商城的话 可能不止一件商品座倒计时处理；<br>一下demo则是处理一列商品的计时器  </p>
 </blockquote>
-<blockquote>
-<p>在本文中 将要使用的微信API </p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/显示导航栏loading加载</span><br><span class="line">    ·wx.showNavigationBarLoading(Object object) </span><br><span class="line">//显示页面加载提示</span><br><span class="line">    ·wx.showLoading(Object object)</span><br><span class="line">//隐藏页面加载提示</span><br><span class="line">    ·wx.hideLoading(Object object)</span><br><span class="line">//隐藏导航栏加载提示</span><br><span class="line">    ·wx.hideNavigationBarLoading(Object object)</span><br><span class="line">//停止下拉刷新</span><br><span class="line">    ·wx.stopPullDownRefresh(Object object)</span><br></pre></td></tr></table></figure>
-<h6 id="首先在json文件中引入"><a href="#首先在json文件中引入" class="headerlink" title="首先在json文件中引入"></a>首先在json文件中引入</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">     <span class="string">&quot;enablePullDownRefresh&quot;</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h6 id="然后在js-文件中"><a href="#然后在js-文件中" class="headerlink" title="然后在js 文件中"></a>然后在js 文件中</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">Page(&#123;</span><br><span class="line">     /**</span><br><span class="line">     * 页面相关事件处理函数--监听用户下拉动作</span><br><span class="line">     */</span><br><span class="line">    onPullDownRefresh: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">        //调用刷新时将执行的方法</span><br><span class="line">    	this.onRefresh();</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="title">onRefresh</span></span>()&#123;</span><br><span class="line">        //在当前页面显示导航条加载动画</span><br><span class="line">        wx.showNavigationBarLoading(); </span><br><span class="line">        //显示 loading 提示框。需主动调用 wx.hideLoading 才能关闭提示框</span><br><span class="line">        wx.showLoading(&#123;</span><br><span class="line">          title: <span class="string">&#x27;刷新中...&#x27;</span>,</span><br><span class="line">        &#125;)</span><br><span class="line">        setTimeout(()=&gt;&#123;</span><br><span class="line">            //隐藏loading 提示框</span><br><span class="line">                wx.hideLoading();</span><br><span class="line">                //隐藏导航条加载动画</span><br><span class="line">                wx.hideNavigationBarLoading();</span><br><span class="line">                //停止下拉刷新</span><br><span class="line">                wx.stopPullDownRefresh();</span><br><span class="line">        &#125;,3000)</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>此外，除了下拉刷新，有时候可能是在某个事件进行时触发刷新动作，此时可以调用 wx.startPullDownRefresh(Object object) 此api的作用是：“ 开始下拉刷新。调用后触发下拉刷新动画，效果与用户手动下拉刷新一致。”</p>
-</blockquote>
-<h6 id="不要忘了在需要刷新结束时调用wx-stopPullDownRefresh-，否则，页面将会保持下拉状态、不会回弹。"><a href="#不要忘了在需要刷新结束时调用wx-stopPullDownRefresh-，否则，页面将会保持下拉状态、不会回弹。" class="headerlink" title="不要忘了在需要刷新结束时调用wx.stopPullDownRefresh()，否则，页面将会保持下拉状态、不会回弹。"></a><font color='#00f'>不要忘了在需要刷新结束时调用wx.stopPullDownRefresh()，否则，页面将会保持下拉状态、不会回弹。</font></h6> 
+<h4 id="day-hour-min-sec"><a href="#day-hour-min-sec" class="headerlink" title="day+hour+min+sec"></a>day+hour+min+sec</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;day+hour+min+sec</span><br><span class="line"></span><br><span class="line">  OutTime(shoplist)&#123;</span><br><span class="line">    var that &#x3D; this ;</span><br><span class="line">    var list&#x3D;shoplist;</span><br><span class="line">    clearInterval(that.data.timer)</span><br><span class="line">    var timer &#x3D; setInterval(res &#x3D;&gt; &#123;</span><br><span class="line">        if (list.is_opengroup) &#123;</span><br><span class="line">          var endTime &#x3D; list.end_time; &#x2F;&#x2F;获取数据中的时间戳 </span><br><span class="line">          var nowTime &#x3D; new Date().getTime(); &#x2F;&#x2F;现在时间（时间戳）</span><br><span class="line">          var timeOut &#x3D; parseInt(endTime) - parseInt(nowTime &#x2F; 1000)</span><br><span class="line">          var day &#x3D; 0,</span><br><span class="line">            hour &#x3D; 0,</span><br><span class="line">            minute &#x3D; 0,</span><br><span class="line">            second &#x3D; 0;</span><br><span class="line">          &#x2F;&#x2F; console.log(timeOut, nowTime, endTime, list.name)</span><br><span class="line">          if (timeOut &gt; 0) &#123; &#x2F;&#x2F;转换时间 </span><br><span class="line">            &#x2F;&#x2F;天数</span><br><span class="line">            var day &#x3D; Math.floor(timeOut &#x2F; (60 * 60 * 24));</span><br><span class="line">            &#x2F;&#x2F;取模（余数）</span><br><span class="line">            var modulo &#x3D; timeOut % (60 * 60 * 24);</span><br><span class="line">            &#x2F;&#x2F;小时数</span><br><span class="line">            var hour &#x3D; Math.floor(modulo &#x2F; (60 * 60));</span><br><span class="line">            modulo &#x3D; modulo % (60 * 60);</span><br><span class="line">            &#x2F;&#x2F;分钟</span><br><span class="line">            var minute &#x3D; Math.floor(modulo &#x2F; 60);</span><br><span class="line">            &#x2F;&#x2F;秒</span><br><span class="line">            var second &#x3D; modulo % 60;</span><br><span class="line">            if (day &lt;&#x3D; 9) day &#x3D; &#39;0&#39; + day;</span><br><span class="line">            if (hour &lt;&#x3D; 9) hour &#x3D; &#39;0&#39; + hour;</span><br><span class="line">            if (minute &lt;&#x3D; 9) minute &#x3D; &#39;0&#39; + minute;</span><br><span class="line">            if (second &lt;&#x3D; 9) second &#x3D; &#39;0&#39; + second;</span><br><span class="line">            &#x2F;&#x2F; timeOut--;</span><br><span class="line">            var time &#x3D; &#123;</span><br><span class="line">              day: day,</span><br><span class="line">              hour: hour,</span><br><span class="line">              minute: minute,</span><br><span class="line">              second: second</span><br><span class="line">            &#125;</span><br><span class="line">            &#x2F;&#x2F; console.log(time)</span><br><span class="line">            list.time &#x3D; time; &#x2F;&#x2F;在数据中添加difftime参数名，把时间放进去 </span><br><span class="line">          &#125; else &#123;</span><br><span class="line">            var str &#x3D; &quot;已结束！&quot;;</span><br><span class="line">            &#x2F;&#x2F; clearInterval(that.data.timer);</span><br><span class="line">            list.time&#x3D;&#39;&#39;</span><br><span class="line">          &#125;</span><br><span class="line">          &#x2F;&#x2F; console.log(str); </span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        that.setData(&#123;</span><br><span class="line">          shop: list</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;, 1000)</span><br><span class="line">    console.log()</span><br><span class="line">    that.setData(&#123;</span><br><span class="line">      timer: timer</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+
+<h4 id="hour-min-sec"><a href="#hour-min-sec" class="headerlink" title="hour+min+sec"></a>hour+min+sec</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">OverTime(shoplist) &#123;</span><br><span class="line">  var that &#x3D; this;</span><br><span class="line">  var list &#x3D; shoplist</span><br><span class="line">  clearInterval(that.data.timer)</span><br><span class="line">  var timer &#x3D; setInterval(res &#x3D;&gt; &#123;</span><br><span class="line">    for (var i &#x3D; 0; i &lt; list.length; i++) &#123;</span><br><span class="line">      &#x2F;&#x2F; console.log(list[i])</span><br><span class="line">      if (list[i].is_opengroup) &#123;</span><br><span class="line">        var endTime &#x3D; list[i].end_time; &#x2F;&#x2F;获取数据中的时间戳 </span><br><span class="line">        var nowTime &#x3D; new Date().getTime(); &#x2F;&#x2F;现在时间（时间戳）</span><br><span class="line">        var timeOut &#x3D; parseInt(endTime) - parseInt(nowTime &#x2F; 1000)</span><br><span class="line">        var day &#x3D; 0,</span><br><span class="line">          hour &#x3D; 0,</span><br><span class="line">          minute &#x3D; 0,</span><br><span class="line">          second &#x3D; 0;</span><br><span class="line">        &#x2F;&#x2F; console.log(timeOut, nowTime, endTime, list[i].name)</span><br><span class="line">        if (timeOut &gt; 0) &#123; &#x2F;&#x2F;转换时间 </span><br><span class="line">          day &#x3D; Math.floor(timeOut &#x2F; (60 * 60 * 24));</span><br><span class="line">          hour &#x3D; Math.floor(timeOut &#x2F; (60 * 60));</span><br><span class="line">          minute &#x3D; Math.floor(timeOut &#x2F; 60) - (hour * 60);</span><br><span class="line">          second &#x3D; Math.floor(timeOut) - (hour * 60 * 60) - (minute * 60);</span><br><span class="line">          if (day &lt;&#x3D; 9) day &#x3D; &#39;0&#39; + day;</span><br><span class="line">          if (hour &lt;&#x3D; 9) hour &#x3D; &#39;0&#39; + hour;</span><br><span class="line">          if (minute &lt;&#x3D; 9) minute &#x3D; &#39;0&#39; + minute;</span><br><span class="line">          if (second &lt;&#x3D; 9) second &#x3D; &#39;0&#39; + second;</span><br><span class="line">          &#x2F;&#x2F; timeOut--;</span><br><span class="line">          var time &#x3D; &#123;</span><br><span class="line">            day: day,</span><br><span class="line">            hour: hour,</span><br><span class="line">            minute: minute,</span><br><span class="line">            second: second</span><br><span class="line">          &#125;</span><br><span class="line">          &#x2F;&#x2F; console.log(time)</span><br><span class="line">          var key &#x3D; &#39;time&#39;</span><br><span class="line">          list[i][key] &#x3D; time; &#x2F;&#x2F;在数据中添加difftime参数名，把时间放进去 </span><br><span class="line">        &#125; else &#123;</span><br><span class="line">          var str &#x3D; &quot;已结束！&quot;;</span><br><span class="line">          &#x2F;&#x2F; clearInterval(that.data.timer);</span><br><span class="line">          var key1 &#x3D; &#39;timeover&#39;</span><br><span class="line">          list[i][key1] &#x3D; str;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F; console.log(str); </span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      that.setData(&#123;</span><br><span class="line">        shopList: list</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, 1000)</span><br><span class="line">  console.log()</span><br><span class="line">  that.setData(&#123;</span><br><span class="line">    timer: timer</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+
+
+
+ 
       <!-- reward -->
       
     </div>
@@ -188,7 +186,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://blog.chensihang.cn/2021/01/15/wxtest/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://blog.chensihang.cn/2021/01/25/wxtest6/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -201,19 +199,10 @@
    
   <nav class="article-nav">
     
-      <a href="/2021/01/17/hexo%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            hexo 常用命令
-          
-        </div>
-      </a>
     
-    
-      <a href="/2021/01/08/Vue%20%E5%95%86%E5%9F%8E%E5%90%8E%E5%8F%B0%E7%94%9F%E6%88%90%E5%95%86%E5%93%81SKU%E8%A7%84%E6%A0%BC%E5%88%97%E8%A1%A8/" class="article-nav-link">
+      <a href="/2021/01/25/wxtest5/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Vue 商城后台生成商品SKU规格列表</div>
+        <div class="article-nav-title">微信小程序组件 checkbox 样式修改</div>
       </a>
     
   </nav>
