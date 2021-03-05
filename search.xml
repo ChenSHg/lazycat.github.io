@@ -85,7 +85,7 @@
   </entry>
   <entry>
     <title>hexo 常用命令</title>
-    <url>/2021/01/17/hexo%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <url>/2021/02/02/hexo%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h3 id="hexo的一些常用命令，包括创建文本，清除缓存，本地预览，打包处理，推送至服务器；"><a href="#hexo的一些常用命令，包括创建文本，清除缓存，本地预览，打包处理，推送至服务器；" class="headerlink" title="hexo的一些常用命令，包括创建文本，清除缓存，本地预览，打包处理，推送至服务器；"></a>hexo的一些常用命令，包括创建文本，清除缓存，本地预览，打包处理，推送至服务器；</h3><h3 id="创建一篇新文章"><a href="#创建一篇新文章" class="headerlink" title="创建一篇新文章"></a>创建一篇新文章</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new  XXX</span><br><span class="line">或</span><br><span class="line">hexo n XXX</span><br></pre></td></tr></table></figure>
 <h3 id="清除缓存"><a href="#清除缓存" class="headerlink" title="清除缓存"></a>清除缓存</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
 
@@ -100,6 +100,33 @@
       </categories>
       <tags>
         <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>微信小程序Canvas制作海报</title>
+    <url>/2021/03/05/wx-canvas/</url>
+    <content><![CDATA[<blockquote>
+<p>前言：在微信小程序中，很多都需要分享，有些利用小程序本身的button按钮open-type=share的功能调用小程序原生的分享功能。<br>但有些时候做宣传时，要用到海报这种东西，这个时候就需要用到canvas去绘制一张海报<br>简单的海报，只有一张背景图和一张二维码，就以此为例</p>
+</blockquote>
+<h4 id="上图预览"><a href="#上图预览" class="headerlink" title="上图预览"></a>上图预览</h4><p><img src="https://me--images.oss-cn-chengdu.aliyuncs.com/blog/bsdhb.jpg" alt="cmd-markdown-logo"></p>
+<h5 id="1-首先在wxml中需要写入canvas标签"><a href="#1-首先在wxml中需要写入canvas标签" class="headerlink" title="1.首先在wxml中需要写入canvas标签"></a>1.首先在wxml中需要写入canvas标签</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;canvas <span class="built_in">type</span>=<span class="string">&quot;2d&quot;</span> id=<span class="string">&#x27;myCanvas&#x27;</span> class=<span class="string">&quot;myCanvas&quot;</span>&gt;&lt;/canvas&gt;</span><br></pre></td></tr></table></figure>
+<p><font color='red'>如果标签中有type=2d，那么只需要写id=”myCanvas”即可，或者也可以写成下边的标签</font></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;canvas canvas-id=<span class="string">&#x27;myCanvas&#x27;</span> class=<span class="string">&quot;myCanvas&quot;</span>&gt;&lt;/canvas&gt;</span><br></pre></td></tr></table></figure>
+<p><font color='red'>这两种不同的写法，js中的用法也不同; 本文章主要使用方法一；</font></p>
+<h5 id="2-在wxss中给canvas样式定义宽高"><a href="#2-在wxss中给canvas样式定义宽高" class="headerlink" title="2.在wxss中给canvas样式定义宽高"></a>2.在wxss中给canvas样式定义宽高</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">.myCanvas &#123;</span><br><span class="line">  width: 576rpx;</span><br><span class="line">  height: 854rpx;</span><br><span class="line">  border-radius: 10rpx;</span><br><span class="line">  border:1rpx solid <span class="comment">#212121;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="3-js中绘制canvas"><a href="#3-js中绘制canvas" class="headerlink" title="3. js中绘制canvas"></a>3. js中绘制canvas</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">drawCanvas: <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">  var  that = this ;</span><br><span class="line">  wx.showLoading(&#123; //  给海报生成做个loading提示</span><br><span class="line">      title: <span class="string">&#x27;海报生成中&#x27;</span>,</span><br><span class="line">      icon: <span class="string">&quot;loading&quot;</span></span><br><span class="line">  &#125;)</span><br><span class="line">  const query = wx.createSelectorQuery();</span><br><span class="line">  query.select(<span class="string">&#x27;#myCanvas&#x27;</span>)  //获取canvas<span class="comment">#myCanvas节点</span></span><br><span class="line">      .fields(&#123;</span><br><span class="line">        node: <span class="literal">true</span>,</span><br><span class="line">        size: <span class="literal">true</span></span><br><span class="line">      &#125;)</span><br><span class="line">      .<span class="built_in">exec</span>((res) =&gt; &#123;</span><br><span class="line">        const canvas = res[0].node</span><br><span class="line">        const ctx = canvas.getContext(<span class="string">&#x27;2d&#x27;</span>)</span><br><span class="line">        const dpr = wx.getSystemInfoSync().pixelRatio; //获取设备像素比</span><br><span class="line">        ctx.scale(dpr, dpr) // 设置画布的像素比，解决画布绘制不清晰的问题</span><br><span class="line">        canvas.width = res[0].width * dpr  //重新设置画布的宽度</span><br><span class="line">        canvas.height = res[0].height * dpr  //重新设置画布的高度</span><br><span class="line">        <span class="built_in">let</span> seal = canvas.createImage(); //创建背景图片对象</span><br><span class="line">        seal.src = <span class="string">&quot;https://image--ccccc.oss-cn-hangzhou.aliyuncs.com/bsd/ccccc.png&quot;</span>; // 赋值图片路径</span><br><span class="line">        seal.onload = () =&gt; &#123;</span><br><span class="line">          //在图片加载后将其绘制在画布上</span><br><span class="line">          //ctx.drawImage(<span class="string">&#x27;图片路径&#x27;</span>,<span class="string">&#x27;起点横坐标&#x27;</span>,<span class="string">&#x27;起点纵坐标&#x27;</span>,<span class="string">&#x27;终点横坐标&#x27;</span>,<span class="string">&#x27;终点纵坐标&#x27;</span>)；起点与终点坐标来确定画布上图片的位置与大小；</span><br><span class="line">          ctx.drawImage(seal, 0, 0, canvas.width, canvas.height);</span><br><span class="line">          <span class="built_in">let</span> qr = canvas.createImage(); //创建二维码图片对象</span><br><span class="line">          qr.src = <span class="string">&#x27;https://me--images.oss-cn-chengdu.aliyuncs.com/blog/qr.jpg&#x27;</span>  //引入二维码图片链接</span><br><span class="line">          qr.onload = () =&gt; &#123;</span><br><span class="line">            //在图片加载后将其绘制在画布上</span><br><span class="line">            ctx.drawImage(qr, canvas.width / 1.7, canvas.height / 1.35, canvas.width / 3, canvas.width / 3);</span><br><span class="line">            wx.canvasToTempFilePath(&#123; //将画布上的内容生成图片</span><br><span class="line">              x: 0, // 起点x坐标</span><br><span class="line">              y: 0, // 起点y坐标</span><br><span class="line">              width: 576,  //终点x坐标（画布的宽度）</span><br><span class="line">              height: 854,  //终点y坐标（画布的高度）</span><br><span class="line">              destWidth: 576 * 2, // 生成图片的宽度（建议为2倍）</span><br><span class="line">              destHeight: 854 * 2,  //生成图片的高度（建议为2倍）</span><br><span class="line">              canvas: canvas,  </span><br><span class="line">              // canvas为DOM节点 （如果标签存在<span class="built_in">type</span>=2d，id=<span class="string">&#x27;myCanvas&#x27;</span>则为canvas：canvas，如果标签为canvas-id=<span class="string">&quot;myCanvas&quot;</span>，则应写为canvas-id：<span class="string">&quot;#myCanvas&quot;</span>）；此处将影响图片能否生成；</span><br><span class="line">              success(res) &#123;</span><br><span class="line">                console.log(res.tempFilePath) //生成图片的本地临时路径</span><br><span class="line">                wx.hideLoading() //去除loading提示</span><br><span class="line">              &#125;,</span><br><span class="line">              fail(err) &#123;</span><br><span class="line">                console.log(err)</span><br><span class="line">              &#125;,</span><br><span class="line">            &#125;)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;,</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<blockquote>
+<p> 以上便是微信小程序canvas绘制海报的整个流程；<br> 后续将会继续跟进；；；；；1</p>
+</blockquote>
+</blockquote>
+]]></content>
+      <categories>
+        <category>微信小程序</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>微信小程序</tag>
       </tags>
   </entry>
   <entry>

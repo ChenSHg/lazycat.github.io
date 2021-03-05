@@ -6,7 +6,7 @@
   <link href="https://blog.chensihang.cn/atom.xml" rel="self"/>
   
   <link href="https://blog.chensihang.cn/"/>
-  <updated>2021-01-25T03:29:12.459Z</updated>
+  <updated>2021-03-05T02:34:06.680Z</updated>
   <id>https://blog.chensihang.cn/</id>
   
   <author>
@@ -15,6 +15,59 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>微信小程序Canvas制作海报</title>
+    <link href="https://blog.chensihang.cn/2021/03/05/wx-canvas/"/>
+    <id>https://blog.chensihang.cn/2021/03/05/wx-canvas/</id>
+    <published>2021-03-05T01:32:19.000Z</published>
+    <updated>2021-03-05T02:34:06.680Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;前言：在微信小程序中，很多都需要分享，有些利用小程序本身的button按钮open-type=share的功能调用小程序原生的分享功能。&lt;br&gt;但有些时候做宣传时，要用到海报这种东西，这个时候就需要用到canvas去绘制一张海报&lt;br&gt;简单的海报，</summary>
+        
+      
+    
+    
+    
+    <category term="微信小程序" scheme="https://blog.chensihang.cn/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+    
+    <category term="JavaScript" scheme="https://blog.chensihang.cn/tags/JavaScript/"/>
+    
+    <category term="微信小程序" scheme="https://blog.chensihang.cn/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo 常用命令</title>
+    <link href="https://blog.chensihang.cn/2021/02/02/hexo%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>https://blog.chensihang.cn/2021/02/02/hexo%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
+    <published>2021-02-02T12:43:51.284Z</published>
+    <updated>2020-12-31T07:37:35.294Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;hexo的一些常用命令，包括创建文本，清除缓存，本地预览，打包处理，推送至服务器；&quot;&gt;&lt;a href=&quot;#hexo的一些常用命令，包括创建文本，清除缓存，本地预览，打包处理，推送至服务器；&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="工具" scheme="https://blog.chensihang.cn/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="工具" scheme="https://blog.chensihang.cn/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>微信小程序  商城商品倒计时</title>
@@ -190,31 +243,6 @@
     <category term="前端" scheme="https://blog.chensihang.cn/tags/%E5%89%8D%E7%AB%AF/"/>
     
     <category term="微信小程序" scheme="https://blog.chensihang.cn/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo 常用命令</title>
-    <link href="https://blog.chensihang.cn/2021/01/17/hexo%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-    <id>https://blog.chensihang.cn/2021/01/17/hexo%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
-    <published>2021-01-17T07:08:27.414Z</published>
-    <updated>2020-12-31T07:37:35.294Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;hexo的一些常用命令，包括创建文本，清除缓存，本地预览，打包处理，推送至服务器；&quot;&gt;&lt;a href=&quot;#hexo的一些常用命令，包括创建文本，清除缓存，本地预览，打包处理，推送至服务器；&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="工具" scheme="https://blog.chensihang.cn/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-    <category term="工具" scheme="https://blog.chensihang.cn/tags/%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
