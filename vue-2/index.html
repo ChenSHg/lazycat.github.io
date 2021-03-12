@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+
+
+    <html lang="zh-CN">
+    
+
+            <head>
+                <meta name="baidu-site-verification" content="code-zRmp8ELtc0" />
+                <meta name="google-site-verification" content="1zRSHj6G6Pm8kv3JduQaeSNOqds2k4hf21P5HZx0ajU" />
+                <meta charset="utf-8" />
+                
+                    
+                            <meta name="keywords" content="JavaScript,Css,HTML,VUE,H5,微信小程序,前端,代码,前端老猫" />
+                            
+                                
+                                        <meta name="description" content="前端老猫的博客,简述前端些许知识与功能点，日常技术整理，记录点" />
+                                        
+                                            <meta name="viewport"
+                                                content="width=device-width, initial-scale=1, maximum-scale=1" />
+                                            <title>
+                                                
+                                                    Vue+element  el-table 导出表格数据 |
+                                                        
+                                                            前端老猫
+                                            </title>
+  <meta name="generator" content="hexo-theme-ayer">
+                                            
+                                                    
+<link rel="stylesheet" href="/dist/main.css">
+
+                                                        
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+                                                            
+<link rel="stylesheet" href="/css/custom.css">
+
+                                                                
+                                                                    
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+                                                                        
+                                                                            
+
+                                                                                
+
+            <link rel="alternate" href="/atom.xml" title="前端老猫" type="application/atom+xml">
+</head>
+
+        </html>
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-vue-2"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Vue+element  el-table 导出表格数据
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/vue-2/" class="article-date">
+  <time datetime="2021-03-12T01:52:40.000Z" itemprop="datePublished">2021-03-12</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Vue/">Vue</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.9k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">11 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <blockquote>
+<p>如果你所做的项目是一个后台管理项目，那么肯定少不了表格展示数据，而导出表格就是必备功能点了，<br>在最近的项目中使用到了Export2Excel插件，下边做一个代码归类。</p>
+</blockquote>
+<h4 id="第一：安装依赖"><a href="#第一：安装依赖" class="headerlink" title="第一：安装依赖"></a>第一：安装依赖</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install -S file-saver xlsx</span><br><span class="line"></span><br><span class="line">npm install -D script-loader</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="第二：在目录里新建excel文件夹"><a href="#第二：在目录里新建excel文件夹" class="headerlink" title="第二：在目录里新建excel文件夹"></a>第二：在目录里新建excel文件夹</h4><h6 id="在excel文件夹里新建三个js文件"><a href="#在excel文件夹里新建三个js文件" class="headerlink" title="在excel文件夹里新建三个js文件"></a>在excel文件夹里新建三个js文件</h6><p>（Blob.js、Export2Excel.js和util.js）</p>
+<p><img src="https://me--images.oss-cn-chengdu.aliyuncs.com/099b43e4c7bd18bc0494ca547910de7.png" alt="image"></p>
+<hr>
+<h6 id="Blob-js"><a href="#Blob-js" class="headerlink" title="Blob.js"></a>Blob.js</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;* eslint-disable *&#x2F;</span><br><span class="line">&#x2F;* Blob.js</span><br><span class="line"> * A Blob implementation.</span><br><span class="line"> * 2014-05-27</span><br><span class="line"> *</span><br><span class="line"> * By Eli Grey, http:&#x2F;&#x2F;eligrey.com</span><br><span class="line"> * By Devin Samarin, https:&#x2F;&#x2F;github.com&#x2F;eboyjr</span><br><span class="line"> * License: X11&#x2F;MIT</span><br><span class="line"> *   See LICENSE.md</span><br><span class="line"> *&#x2F;</span><br><span class="line"> </span><br><span class="line">&#x2F;*global self, unescape *&#x2F;</span><br><span class="line">&#x2F;*jslint bitwise: true, regexp: true, confusion: true, es5: true, vars: true, white: true,</span><br><span class="line"> plusplus: true *&#x2F;</span><br><span class="line"> </span><br><span class="line">&#x2F;*! @source http:&#x2F;&#x2F;purl.eligrey.com&#x2F;github&#x2F;Blob.js&#x2F;blob&#x2F;master&#x2F;Blob.js *&#x2F;</span><br><span class="line"> </span><br><span class="line">(function (view) &#123;</span><br><span class="line">    &quot;use strict&quot;;</span><br><span class="line"> </span><br><span class="line">    view.URL &#x3D; view.URL || view.webkitURL;</span><br><span class="line"> </span><br><span class="line">    if (view.Blob &amp;&amp; view.URL) &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            new Blob;</span><br><span class="line">            return;</span><br><span class="line">        &#125; catch (e) &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    &#x2F;&#x2F; Internally we use a BlobBuilder implementation to base Blob off of</span><br><span class="line">    &#x2F;&#x2F; in order to support older browsers that only have BlobBuilder</span><br><span class="line">    var BlobBuilder &#x3D; view.BlobBuilder || view.WebKitBlobBuilder || view.MozBlobBuilder || (function(view) &#123;</span><br><span class="line">            var</span><br><span class="line">                get_class &#x3D; function(object) &#123;</span><br><span class="line">                    return Object.prototype.toString.call(object).match(&#x2F;^\[object\s(.*)\]$&#x2F;)[1];</span><br><span class="line">                &#125;</span><br><span class="line">                , FakeBlobBuilder &#x3D; function BlobBuilder() &#123;</span><br><span class="line">                    this.data &#x3D; [];</span><br><span class="line">                &#125;</span><br><span class="line">                , FakeBlob &#x3D; function Blob(data, type, encoding) &#123;</span><br><span class="line">                    this.data &#x3D; data;</span><br><span class="line">                    this.size &#x3D; data.length;</span><br><span class="line">                    this.type &#x3D; type;</span><br><span class="line">                    this.encoding &#x3D; encoding;</span><br><span class="line">                &#125;</span><br><span class="line">                , FBB_proto &#x3D; FakeBlobBuilder.prototype</span><br><span class="line">                , FB_proto &#x3D; FakeBlob.prototype</span><br><span class="line">                , FileReaderSync &#x3D; view.FileReaderSync</span><br><span class="line">                , FileException &#x3D; function(type) &#123;</span><br><span class="line">                    this.code &#x3D; this[this.name &#x3D; type];</span><br><span class="line">                &#125;</span><br><span class="line">                , file_ex_codes &#x3D; (</span><br><span class="line">                    &quot;NOT_FOUND_ERR SECURITY_ERR ABORT_ERR NOT_READABLE_ERR ENCODING_ERR &quot;</span><br><span class="line">                    + &quot;NO_MODIFICATION_ALLOWED_ERR INVALID_STATE_ERR SYNTAX_ERR&quot;</span><br><span class="line">                ).split(&quot; &quot;)</span><br><span class="line">                , file_ex_code &#x3D; file_ex_codes.length</span><br><span class="line">                , real_URL &#x3D; view.URL || view.webkitURL || view</span><br><span class="line">                , real_create_object_URL &#x3D; real_URL.createObjectURL</span><br><span class="line">                , real_revoke_object_URL &#x3D; real_URL.revokeObjectURL</span><br><span class="line">                , URL &#x3D; real_URL</span><br><span class="line">                , btoa &#x3D; view.btoa</span><br><span class="line">                , atob &#x3D; view.atob</span><br><span class="line"> </span><br><span class="line">                , ArrayBuffer &#x3D; view.ArrayBuffer</span><br><span class="line">                , Uint8Array &#x3D; view.Uint8Array</span><br><span class="line">                ;</span><br><span class="line">            FakeBlob.fake &#x3D; FB_proto.fake &#x3D; true;</span><br><span class="line">            while (file_ex_code--) &#123;</span><br><span class="line">                FileException.prototype[file_ex_codes[file_ex_code]] &#x3D; file_ex_code + 1;</span><br><span class="line">            &#125;</span><br><span class="line">            if (!real_URL.createObjectURL) &#123;</span><br><span class="line">                URL &#x3D; view.URL &#x3D; &#123;&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">            URL.createObjectURL &#x3D; function(blob) &#123;</span><br><span class="line">                var</span><br><span class="line">                    type &#x3D; blob.type</span><br><span class="line">                    , data_URI_header</span><br><span class="line">                    ;</span><br><span class="line">                if (type &#x3D;&#x3D;&#x3D; null) &#123;</span><br><span class="line">                    type &#x3D; &quot;application&#x2F;octet-stream&quot;;</span><br><span class="line">                &#125;</span><br><span class="line">                if (blob instanceof FakeBlob) &#123;</span><br><span class="line">                    data_URI_header &#x3D; &quot;data:&quot; + type;</span><br><span class="line">                    if (blob.encoding &#x3D;&#x3D;&#x3D; &quot;base64&quot;) &#123;</span><br><span class="line">                        return data_URI_header + &quot;;base64,&quot; + blob.data;</span><br><span class="line">                    &#125; else if (blob.encoding &#x3D;&#x3D;&#x3D; &quot;URI&quot;) &#123;</span><br><span class="line">                        return data_URI_header + &quot;,&quot; + decodeURIComponent(blob.data);</span><br><span class="line">                    &#125; if (btoa) &#123;</span><br><span class="line">                        return data_URI_header + &quot;;base64,&quot; + btoa(blob.data);</span><br><span class="line">                    &#125; else &#123;</span><br><span class="line">                        return data_URI_header + &quot;,&quot; + encodeURIComponent(blob.data);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; else if (real_create_object_URL) &#123;</span><br><span class="line">                    return real_create_object_URL.call(real_URL, blob);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;;</span><br><span class="line">            URL.revokeObjectURL &#x3D; function(object_URL) &#123;</span><br><span class="line">                if (object_URL.substring(0, 5) !&#x3D;&#x3D; &quot;data:&quot; &amp;&amp; real_revoke_object_URL) &#123;</span><br><span class="line">                    real_revoke_object_URL.call(real_URL, object_URL);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;;</span><br><span class="line">            FBB_proto.append &#x3D; function(data&#x2F;*, endings*&#x2F;) &#123;</span><br><span class="line">                var bb &#x3D; this.data;</span><br><span class="line">                &#x2F;&#x2F; decode data to a binary string</span><br><span class="line">                if (Uint8Array &amp;&amp; (data instanceof ArrayBuffer || data instanceof Uint8Array)) &#123;</span><br><span class="line">                    var</span><br><span class="line">                        str &#x3D; &quot;&quot;</span><br><span class="line">                        , buf &#x3D; new Uint8Array(data)</span><br><span class="line">                        , i &#x3D; 0</span><br><span class="line">                        , buf_len &#x3D; buf.length</span><br><span class="line">                        ;</span><br><span class="line">                    for (; i &lt; buf_len; i++) &#123;</span><br><span class="line">                        str +&#x3D; String.fromCharCode(buf[i]);</span><br><span class="line">                    &#125;</span><br><span class="line">                    bb.push(str);</span><br><span class="line">                &#125; else if (get_class(data) &#x3D;&#x3D;&#x3D; &quot;Blob&quot; || get_class(data) &#x3D;&#x3D;&#x3D; &quot;File&quot;) &#123;</span><br><span class="line">                    if (FileReaderSync) &#123;</span><br><span class="line">                        var fr &#x3D; new FileReaderSync;</span><br><span class="line">                        bb.push(fr.readAsBinaryString(data));</span><br><span class="line">                    &#125; else &#123;</span><br><span class="line">                        &#x2F;&#x2F; async FileReader won&#39;t work as BlobBuilder is sync</span><br><span class="line">                        throw new FileException(&quot;NOT_READABLE_ERR&quot;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; else if (data instanceof FakeBlob) &#123;</span><br><span class="line">                    if (data.encoding &#x3D;&#x3D;&#x3D; &quot;base64&quot; &amp;&amp; atob) &#123;</span><br><span class="line">                        bb.push(atob(data.data));</span><br><span class="line">                    &#125; else if (data.encoding &#x3D;&#x3D;&#x3D; &quot;URI&quot;) &#123;</span><br><span class="line">                        bb.push(decodeURIComponent(data.data));</span><br><span class="line">                    &#125; else if (data.encoding &#x3D;&#x3D;&#x3D; &quot;raw&quot;) &#123;</span><br><span class="line">                        bb.push(data.data);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    if (typeof data !&#x3D;&#x3D; &quot;string&quot;) &#123;</span><br><span class="line">                        data +&#x3D; &quot;&quot;; &#x2F;&#x2F; convert unsupported types to strings</span><br><span class="line">                    &#125;</span><br><span class="line">                    &#x2F;&#x2F; decode UTF-16 to binary string</span><br><span class="line">                    bb.push(unescape(encodeURIComponent(data)));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;;</span><br><span class="line">            FBB_proto.getBlob &#x3D; function(type) &#123;</span><br><span class="line">                if (!arguments.length) &#123;</span><br><span class="line">                    type &#x3D; null;</span><br><span class="line">                &#125;</span><br><span class="line">                return new FakeBlob(this.data.join(&quot;&quot;), type, &quot;raw&quot;);</span><br><span class="line">            &#125;;</span><br><span class="line">            FBB_proto.toString &#x3D; function() &#123;</span><br><span class="line">                return &quot;[object BlobBuilder]&quot;;</span><br><span class="line">            &#125;;</span><br><span class="line">            FB_proto.slice &#x3D; function(start, end, type) &#123;</span><br><span class="line">                var args &#x3D; arguments.length;</span><br><span class="line">                if (args &lt; 3) &#123;</span><br><span class="line">                    type &#x3D; null;</span><br><span class="line">                &#125;</span><br><span class="line">                return new FakeBlob(</span><br><span class="line">                    this.data.slice(start, args &gt; 1 ? end : this.data.length)</span><br><span class="line">                    , type</span><br><span class="line">                    , this.encoding</span><br><span class="line">                );</span><br><span class="line">            &#125;;</span><br><span class="line">            FB_proto.toString &#x3D; function() &#123;</span><br><span class="line">                return &quot;[object Blob]&quot;;</span><br><span class="line">            &#125;;</span><br><span class="line">            FB_proto.close &#x3D; function() &#123;</span><br><span class="line">                this.size &#x3D; this.data.length &#x3D; 0;</span><br><span class="line">            &#125;;</span><br><span class="line">            return FakeBlobBuilder;</span><br><span class="line">        &#125;(view));</span><br><span class="line"> </span><br><span class="line">    view.Blob &#x3D; function Blob(blobParts, options) &#123;</span><br><span class="line">        var type &#x3D; options ? (options.type || &quot;&quot;) : &quot;&quot;;</span><br><span class="line">        var builder &#x3D; new BlobBuilder();</span><br><span class="line">        if (blobParts) &#123;</span><br><span class="line">            for (var i &#x3D; 0, len &#x3D; blobParts.length; i &lt; len; i++) &#123;</span><br><span class="line">                builder.append(blobParts[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return builder.getBlob(type);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;(typeof self !&#x3D;&#x3D; &quot;undefined&quot; &amp;&amp; self || typeof window !&#x3D;&#x3D; &quot;undefined&quot; &amp;&amp; window || this.content || this));</span><br></pre></td></tr></table></figure>
+<hr>
+<h6 id="Export2Excel-js"><a href="#Export2Excel-js" class="headerlink" title="Export2Excel.js"></a>Export2Excel.js</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;* eslint-disable *&#x2F;</span><br><span class="line">require(&#39;script-loader!file-saver&#39;);</span><br><span class="line">require(&#39;.&#x2F;Blob&#39;);</span><br><span class="line">require(&#39;script-loader!xlsx&#x2F;dist&#x2F;xlsx.core.min&#39;);</span><br><span class="line">function generateArray(table) &#123;</span><br><span class="line">    var out &#x3D; [];</span><br><span class="line">    var rows &#x3D; table.querySelectorAll(&#39;tr&#39;);</span><br><span class="line">    var ranges &#x3D; [];</span><br><span class="line">    for (var R &#x3D; 0; R &lt; rows.length; ++R) &#123;</span><br><span class="line">        var outRow &#x3D; [];</span><br><span class="line">        var row &#x3D; rows[R];</span><br><span class="line">        var columns &#x3D; row.querySelectorAll(&#39;td&#39;);</span><br><span class="line">        for (var C &#x3D; 0; C &lt; columns.length; ++C) &#123;</span><br><span class="line">            var cell &#x3D; columns[C];</span><br><span class="line">            var colspan &#x3D; cell.getAttribute(&#39;colspan&#39;);</span><br><span class="line">            var rowspan &#x3D; cell.getAttribute(&#39;rowspan&#39;);</span><br><span class="line">            var cellValue &#x3D; cell.innerText;</span><br><span class="line">            if (cellValue !&#x3D;&#x3D; &quot;&quot; &amp;&amp; cellValue &#x3D;&#x3D; +cellValue) cellValue &#x3D; +cellValue;</span><br><span class="line"> </span><br><span class="line">            &#x2F;&#x2F;Skip ranges</span><br><span class="line">            ranges.forEach(function (range) &#123;</span><br><span class="line">                if (R &gt;&#x3D; range.s.r &amp;&amp; R &lt;&#x3D; range.e.r &amp;&amp; outRow.length &gt;&#x3D; range.s.c &amp;&amp; outRow.length &lt;&#x3D; range.e.c) &#123;</span><br><span class="line">                    for (var i &#x3D; 0; i &lt;&#x3D; range.e.c - range.s.c; ++i) outRow.push(null);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line"> </span><br><span class="line">            &#x2F;&#x2F;Handle Row Span</span><br><span class="line">            if (rowspan || colspan) &#123;</span><br><span class="line">                rowspan &#x3D; rowspan || 1;</span><br><span class="line">                colspan &#x3D; colspan || 1;</span><br><span class="line">                ranges.push(&#123;s: &#123;r: R, c: outRow.length&#125;, e: &#123;r: R + rowspan - 1, c: outRow.length + colspan - 1&#125;&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">            ;</span><br><span class="line"> </span><br><span class="line">            &#x2F;&#x2F;Handle Value</span><br><span class="line">            outRow.push(cellValue !&#x3D;&#x3D; &quot;&quot; ? cellValue : null);</span><br><span class="line"> </span><br><span class="line">            &#x2F;&#x2F;Handle Colspan</span><br><span class="line">            if (colspan) for (var k &#x3D; 0; k &lt; colspan - 1; ++k) outRow.push(null);</span><br><span class="line">        &#125;</span><br><span class="line">        out.push(outRow);</span><br><span class="line">    &#125;</span><br><span class="line">    return [out, ranges];</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line">function datenum(v, date1904) &#123;</span><br><span class="line">    if (date1904) v +&#x3D; 1462;</span><br><span class="line">    var epoch &#x3D; Date.parse(v);</span><br><span class="line">    return (epoch - new Date(Date.UTC(1899, 11, 30))) &#x2F; (24 * 60 * 60 * 1000);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">function sheet_from_array_of_arrays(data, opts) &#123;</span><br><span class="line">    var ws &#x3D; &#123;&#125;;</span><br><span class="line">    var range &#x3D; &#123;s: &#123;c: 10000000, r: 10000000&#125;, e: &#123;c: 0, r: 0&#125;&#125;;</span><br><span class="line">    for (var R &#x3D; 0; R !&#x3D; data.length; ++R) &#123;</span><br><span class="line">        for (var C &#x3D; 0; C !&#x3D; data[R].length; ++C) &#123;</span><br><span class="line">            if (range.s.r &gt; R) range.s.r &#x3D; R;</span><br><span class="line">            if (range.s.c &gt; C) range.s.c &#x3D; C;</span><br><span class="line">            if (range.e.r &lt; R) range.e.r &#x3D; R;</span><br><span class="line">            if (range.e.c &lt; C) range.e.c &#x3D; C;</span><br><span class="line">            var cell &#x3D; &#123;v: data[R][C]&#125;;</span><br><span class="line">            if (cell.v &#x3D;&#x3D; null) continue;</span><br><span class="line">            var cell_ref &#x3D; XLSX.utils.encode_cell(&#123;c: C, r: R&#125;);</span><br><span class="line"> </span><br><span class="line">            if (typeof cell.v &#x3D;&#x3D;&#x3D; &#39;number&#39;) cell.t &#x3D; &#39;n&#39;;</span><br><span class="line">            else if (typeof cell.v &#x3D;&#x3D;&#x3D; &#39;boolean&#39;) cell.t &#x3D; &#39;b&#39;;</span><br><span class="line">            else if (cell.v instanceof Date) &#123;</span><br><span class="line">                cell.t &#x3D; &#39;n&#39;;</span><br><span class="line">                cell.z &#x3D; XLSX.SSF._table[14];</span><br><span class="line">                cell.v &#x3D; datenum(cell.v);</span><br><span class="line">            &#125;</span><br><span class="line">            else cell.t &#x3D; &#39;s&#39;;</span><br><span class="line"> </span><br><span class="line">            ws[cell_ref] &#x3D; cell;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if (range.s.c &lt; 10000000) ws[&#39;!ref&#39;] &#x3D; XLSX.utils.encode_range(range);</span><br><span class="line">    return ws;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">function Workbook() &#123;</span><br><span class="line">    if (!(this instanceof Workbook)) return new Workbook();</span><br><span class="line">    this.SheetNames &#x3D; [];</span><br><span class="line">    this.Sheets &#x3D; &#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">function s2ab(s) &#123;</span><br><span class="line">    var buf &#x3D; new ArrayBuffer(s.length);</span><br><span class="line">    var view &#x3D; new Uint8Array(buf);</span><br><span class="line">    for (var i &#x3D; 0; i !&#x3D; s.length; ++i) view[i] &#x3D; s.charCodeAt(i) &amp; 0xFF;</span><br><span class="line">    return buf;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">export function export_table_to_excel(id) &#123;</span><br><span class="line">    var theTable &#x3D; document.getElementById(id);</span><br><span class="line">    console.log(&#39;a&#39;)</span><br><span class="line">    var oo &#x3D; generateArray(theTable);</span><br><span class="line">    var ranges &#x3D; oo[1];</span><br><span class="line"> </span><br><span class="line">    &#x2F;* original data *&#x2F;</span><br><span class="line">    var data &#x3D; oo[0];</span><br><span class="line">    var ws_name &#x3D; &quot;SheetJS&quot;;</span><br><span class="line">    console.log(data);</span><br><span class="line"> </span><br><span class="line">    var wb &#x3D; new Workbook(), ws &#x3D; sheet_from_array_of_arrays(data);</span><br><span class="line"> </span><br><span class="line">    &#x2F;* add ranges to worksheet *&#x2F;</span><br><span class="line">    &#x2F;&#x2F; ws[&#39;!cols&#39;] &#x3D; [&#39;apple&#39;, &#39;banan&#39;];</span><br><span class="line">    ws[&#39;!merges&#39;] &#x3D; ranges;</span><br><span class="line"> </span><br><span class="line">    &#x2F;* add worksheet to workbook *&#x2F;</span><br><span class="line">    wb.SheetNames.push(ws_name);</span><br><span class="line">    wb.Sheets[ws_name] &#x3D; ws;</span><br><span class="line"> </span><br><span class="line">    var wbout &#x3D; XLSX.write(wb, &#123;bookType: &#39;xlsx&#39;, bookSST: false, type: &#39;binary&#39;&#125;);</span><br><span class="line"> </span><br><span class="line">    saveAs(new Blob([s2ab(wbout)], &#123;type: &quot;application&#x2F;octet-stream&quot;&#125;), &quot;test.xlsx&quot;)</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">function formatJson(jsonData) &#123;</span><br><span class="line">    console.log(jsonData)</span><br><span class="line">&#125;</span><br><span class="line">export function export_json_to_excel(th, jsonData, defaultTitle) &#123;</span><br><span class="line"> </span><br><span class="line">    &#x2F;* original data *&#x2F;</span><br><span class="line"> </span><br><span class="line">    var data &#x3D; jsonData;</span><br><span class="line">    data.unshift(th);</span><br><span class="line">    var ws_name &#x3D; &quot;SheetJS&quot;;</span><br><span class="line"> </span><br><span class="line">    var wb &#x3D; new Workbook(), ws &#x3D; sheet_from_array_of_arrays(data);</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">    &#x2F;* add worksheet to workbook *&#x2F;</span><br><span class="line">    wb.SheetNames.push(ws_name);</span><br><span class="line">    wb.Sheets[ws_name] &#x3D; ws;</span><br><span class="line"> </span><br><span class="line">    var wbout &#x3D; XLSX.write(wb, &#123;bookType: &#39;xlsx&#39;, bookSST: false, type: &#39;binary&#39;&#125;);</span><br><span class="line">    var title &#x3D; defaultTitle || &#39;列表&#39;</span><br><span class="line">    saveAs(new Blob([s2ab(wbout)], &#123;type: &quot;application&#x2F;octet-stream&quot;&#125;), title + &quot;.xlsx&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h6 id="util-js"><a href="#util-js" class="headerlink" title="util.js"></a>util.js</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">export function export2Excel(columns, list, xlseName) &#123;</span><br><span class="line">    require.ensure([], () &#x3D;&gt; &#123;</span><br><span class="line">        const &#123; export_json_to_excel &#125; &#x3D; require(&#39;.&#x2F;Export2Excel&#39;);</span><br><span class="line">        let tHeader &#x3D; []</span><br><span class="line">        let filterVal &#x3D; []</span><br><span class="line">            &#x2F;&#x2F; console.log(columns)</span><br><span class="line">        if (!columns) &#123;</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        columns.forEach(item &#x3D;&gt; &#123;</span><br><span class="line">            tHeader.push(item.title)</span><br><span class="line">            filterVal.push(item.key)</span><br><span class="line">        &#125;)</span><br><span class="line">        const data &#x3D; list.map(v &#x3D;&gt; filterVal.map(j &#x3D;&gt; v[j]))</span><br><span class="line">        export_json_to_excel(tHeader, data, xlseName);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="在js文件中-调用"><a href="#在js文件中-调用" class="headerlink" title="在js文件中 调用"></a>在js文件中 调用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import &#123; export2Excel &#125; from &#39;..&#x2F;..&#x2F;common&#x2F;js&#x2F;util&#39;</span><br><span class="line"></span><br><span class="line">data()&#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      taberHeader: [</span><br><span class="line">        &#123; title: &quot;名字&quot;, key: &quot;name&quot; &#125;,&#x2F;&#x2F;初始化表头</span><br><span class="line">      ],</span><br><span class="line">      tableData:[</span><br><span class="line">        &#123;name:&quot;张&quot;&#125;</span><br><span class="line">      ],</span><br><span class="line">      tableName:&quot;商户表&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">methods:&#123;</span><br><span class="line">    export:function()&#123;</span><br><span class="line">        export2Excel(that.taberHeader, this.tableData, this.tableName);  </span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://blog.chensihang.cn/vue-2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/vue-3/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Vue项目线上版本打包时去掉console输出日志
+          
+        </div>
+      </a>
+    
+    
+      <a href="/vue-1/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">element-UI el-table表格数据dialog修改数据table数据也随之变化</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "VjuBaKizplxiBcf3xpX0gGO3-gzGzoHsz",
+    app_key: "oxUg0Q6zAU82hUtyHJu0lnaS",
+    path: window.location.pathname,
+    avatar: "retro",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020-2021
+        <!-- <i class="ri-heart-fill heart_icon"></i> -->
+				 前端老猫
+      </li>
+    </ul>
+    <ul>
+      <!-- <li>
+        
+        
+        
+        由 <a href="https://hexo.io" target="_blank">Hexo</a> 强力驱动
+        <span class="division">|</span>
+        主题 - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li> -->
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+         <!-- cnzz统计 -->
+         
+        <script type="text/javascript" src='https://v1.cnzz.com/z_stat.php?id=1279578228&amp;web_id=1279578228'></script>
+        
+				
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+
+<script src="/js/clickBoom2.js"></script>
+
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>
